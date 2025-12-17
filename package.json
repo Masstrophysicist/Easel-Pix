@@ -1,0 +1,22 @@
+{
+  "name": "easel-pix",
+  "version": "1.0.0",
+  "description": "",
+  "main": "client.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Masstrophysicist/Easel-Pix.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Masstrophysicist/Easel-Pix/issues"
+  },
+  "homepage": "https://github.com/Masstrophysicist/Easel-Pix#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0"
+  }
+}
