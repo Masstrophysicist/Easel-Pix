@@ -9,12 +9,12 @@ CREATE TABLE users (
     profilepicture TEXT,
     banner TEXT,
     biography TEXT,
-    password TEXT NOT NULL,
-)
+    password TEXT NOT NULL
+);
 
 CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
     title TEXT NOT NULL,
     description TEXT NOT NULL,
-    date TIMESTAMP DEFAULT now(),
-)
+    date TIMESTAMP DEFAULT now()
+);
