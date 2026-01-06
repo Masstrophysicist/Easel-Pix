@@ -1,6 +1,6 @@
 import client from "./client.js";
 
-// Fetch all posts for a user
+// Fetch all posts for a user //
 export const fetchPosts = async (userId) => {
   const SQL = `
     SELECT *
@@ -10,7 +10,7 @@ export const fetchPosts = async (userId) => {
     `;
   let response = await client.query(SQL, [userId]);
 
-  // Optional: if the user has no posts, create a default "Welcome Post"
+  // If the user has no posts, create a default "Welcome Post" //
   if (response.rows.length === 0) {
     const CREATEFIRST = `
       INSERT INTO posts(user_id, title, description)
@@ -19,14 +19,14 @@ export const fetchPosts = async (userId) => {
       `;
     await client.query(CREATEFIRST, [userId]);
 
-    // Re-fetch after creating default post
+    // Re-fetch after creating default post //
     response = await client.query(SQL, [userId]);
   }
 
   return response.rows;
 };
 
-// Fetch a single post by ID for a user
+// Fetch a single post by ID for a user //
 export const fetchPostById = async (postId, userId) => {
   const SQL = `
     SELECT *
@@ -37,7 +37,7 @@ export const fetchPostById = async (postId, userId) => {
   return response.rows[0];
 };
 
-// Create a new post
+// Create a new post //
 export const createPost = async ({ user_id, title, description }) => {
   const SQL = `
     INSERT INTO posts(user_id, title, description)
@@ -48,7 +48,7 @@ export const createPost = async ({ user_id, title, description }) => {
   return response.rows[0];
 };
 
-// Update an existing post
+// Update an existing post //
 export const updatePost = async ({ id, title, description }) => {
   const SQL = `
     UPDATE posts

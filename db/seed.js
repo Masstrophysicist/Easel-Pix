@@ -28,7 +28,7 @@ export const seed = async () => {
       }),
     ]);
 
-    // Create posts //
+    // Create Posts //
 
     await Promise.all([
       createPost({
