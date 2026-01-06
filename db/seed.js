@@ -15,8 +15,8 @@ export const seed = async () => {
         password: "or12345",
       }),
       createUser({
-        username: "zach123",
-        displayname: "Zach",
+        username: "zak123",
+        displayname: "Zak",
         biography: "Frontend Developer",
         password: "za12345",
       }),
