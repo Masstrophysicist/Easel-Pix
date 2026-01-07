@@ -1,3 +1,19 @@
+const path = require("path");
+const fileSaver = require("fs");
+
+const loadImage = (filePath) => {
+  return new Promise((resolve, reject) => {
+    const fullPath = path.join(__dirname, filePath);
+    fileSaver.readFile(fullPath, "base64", (err, result) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(`data:image/png;base64,${result}`);
+      }
+    });
+  });
+};
+
 import client from "./client.js";
 
 // Fetch all posts for a user //
@@ -37,14 +53,22 @@ export const fetchPostById = async (postId, userId) => {
   return response.rows[0];
 };
 
-// Create a new post //
-export const createPost = async ({ user_id, title, description }) => {
+//load post images?
+const postImg = await loadImage("../images/orlandopfp.jpg");
+
+// Create a new post
+export const createPost = async ({ user_id, title, description, image }) => {
   const SQL = `
-    INSERT INTO posts(user_id, title, description)
-    VALUES ($1, $2, $3)
+    INSERT INTO posts(user_id, title, description, image)
+    VALUES ($1, $2, $3, $4)
     RETURNING *
     `;
-  const response = await client.query(SQL, [user_id, title, description]);
+  const response = await client.query(SQL, [
+    user_id,
+    title,
+    description,
+    image,
+  ]);
   return response.rows[0];
 };
 
