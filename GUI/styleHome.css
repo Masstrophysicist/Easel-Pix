@@ -2,7 +2,7 @@ body {
   display: flex;
   flex-direction: column;
   background-color: rgb(255, 255, 255);
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   box-sizing: border-box;
   margin: 0;
   height: 100vh;
@@ -36,9 +36,13 @@ main {
   gap: 10px;
   flex-grow: 1;
   background-color: rgb(255, 255, 255);
-  max-width: 800px;
+  width: 100%;
   margin: 0 auto;
   padding: 10px;
+}
+
+.test {
+  display: flex;
 }
 
 .background {
