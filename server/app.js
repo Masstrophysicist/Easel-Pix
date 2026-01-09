@@ -1,43 +1,31 @@
 import express from "express";
-import path from "path";
-import { fileURLToPath } from "url";
-
 import client from "./db/client.js";
-import { seed } from "./db/seed.js";
 import apiRouter from "./api/index.js";
-
-const filename = fileURLToPath(import.meta.url);
-const dirname = path.dirname(filename);
+import { seed } from "./db/seed.js";
 
 const app = express();
 
-//Middleware//
 app.use(express.json());
 
-//API routes//
+//API//
 app.use("/api", apiRouter);
 
-//Frontend//
-app.get("/", (req, res) =>
-  res.sendFile(path.join(dirname, "../easel-pix/dist/index.html"))
-);
-app.use(
-  "/assets",
-  express.static(path.join(__dirname, "../easel-pix/dist/assets"))
-);
+//Serve local images folder if you have one//
+app.use("/images", express.static("server/images"));
 
-//error handling//
+//Error handling//
 app.use((err, req, res, next) => {
-  res.status(err.status || 500).send({
-    error: err.message || err,
-  });
+  console.log(err);
+  res.status(err.status || 500).send({ error: err.message || err });
 });
 
 const init = async () => {
   const PORT = process.env.PORT || 3000;
+
   await client.connect();
   console.log("connected to database");
 
+  //Run this part only after schema.sql has been run successfully//
   await seed();
 
   app.listen(PORT, () => console.log(`listening on port ${PORT}`));

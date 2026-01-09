@@ -1,6 +1,6 @@
 import client from "./client.js";
 
-// Fetch all posts for a user
+//Fetch all posts//
 export const fetchAllPosts = async () => {
   const SQL = `
     SELECT *
@@ -11,7 +11,19 @@ export const fetchAllPosts = async () => {
   return response.rows;
 };
 
-// Fetch a single post
+//Fetch Posts By a User//
+export const fetchPostsByUser = async (userId) => {
+  const SQL = `
+  SELECT *
+  FROM posts
+  WHERE user_id = $1
+  ORDER BY date DESC;
+  `;
+  const response = await client.query(SQL, [userId]);
+  return response.rows;
+};
+
+//Fetch a single post//
 export const fetchPostById = async (postId, userId) => {
   const SQL = `
     SELECT *
@@ -22,7 +34,7 @@ export const fetchPostById = async (postId, userId) => {
   return response.rows[0];
 };
 
-// Create post
+//Create post//
 export const createPost = async ({ user_id, title, description, image }) => {
   const SQL = `
     INSERT INTO posts (user_id, title, description, image)
@@ -33,13 +45,13 @@ export const createPost = async ({ user_id, title, description, image }) => {
     user_id,
     title,
     description,
-    image, // this is JUST A STRING PATH
+    image,
   ]);
 
   return response.rows[0];
 };
 
-// Update post
+//Update post//
 export const updatePost = async ({ id, title, description, image }) => {
   const SQL = `
     UPDATE posts
