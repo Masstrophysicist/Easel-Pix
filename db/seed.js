@@ -13,18 +13,24 @@ export const seed = async () => {
         displayname: "Orlando",
         biography: "Backend Developer",
         password: "or12345",
+        profilePictue: "../images/orlandopfp.jpg",
+        bannerPicture: "../images/orlandobanner.jpg",
       }),
       createUser({
         username: "zak123",
         displayname: "Zak",
         biography: "Frontend Developer",
         password: "za12345",
+        profilePictue: "../images/zakpfp.JPG",
+        bannerPicture: "../images/zakbanner.jpg",
       }),
       createUser({
         username: "tyler123",
         displayname: "Tyler",
         biography: "Software Engineer",
         password: "ty12345",
+        profilePictue: "../images/tylerpfp.jpg",
+        bannerPicture: "../images/tylerbanner.jpg",
       }),
     ]);
 

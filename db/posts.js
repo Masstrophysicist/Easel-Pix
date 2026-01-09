@@ -79,8 +79,9 @@ export const updatePost = async ({ id, title, description }) => {
     SET title = $1,
         description = $2
     WHERE id = $3
+    SET image = $4
     RETURNING *
     `;
-  const response = await client.query(SQL, [title, description, id]);
+  const response = await client.query(SQL, [title, description, id, image]);
   return response.rows[0];
 };
