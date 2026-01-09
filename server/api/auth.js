@@ -1,6 +1,6 @@
 import express from "express";
-import requireUser from ".../middleware/requireUser.js";
-import { authenticate } from "../db/auth";
+import requireUser from "../middleware/requireUser.js";
+import { authenticate } from "../db/auth.js";
 
 const router = express.Router();
 
