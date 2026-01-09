@@ -27,3 +27,5 @@ const requireUser = async (req, res, next) => {
     next(error);
   }
 };
+
+export default requireUser;
