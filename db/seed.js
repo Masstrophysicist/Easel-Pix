@@ -17,8 +17,8 @@ export const seed = async () => {
         bannerPicture: "../images/orlandobanner.jpg",
       }),
       createUser({
-        username: "zach123",
-        displayname: "Zach",
+        username: "zak123",
+        displayname: "Zak",
         biography: "Frontend Developer",
         password: "za12345",
         profilePictue: "../images/zakpfp.JPG",
@@ -34,7 +34,7 @@ export const seed = async () => {
       }),
     ]);
 
-    // Create posts //
+    // Create Posts //
 
     await Promise.all([
       createPost({

@@ -1,13 +1,32 @@
-const express = require("express");
-const app = express.Router();
-const { fetchPosts } = required("../db/post");
-const { isLoggedIn } = require("../middleware/auth");
-const { updatePost } = requre("../db/posts");
+import express from "express";
+import requireUser from "../middleware/requireUser.js";
+import { createPost, fetchPosts } from "../db/posts.js";
 
-app.get("/", async (req, res, next) => {});
+const router = express.Router();
 
-app.patch("/:id", isLoggedIn, async (req, res, next) => {
-  res.send(await updatePost({ id: req.params.id, ...req.body }));
+// Get all posts //
+router.get("/", async (req, res, next) => {
+  try {
+    const posts = await fetchPosts();
+    res.send(posts);
+  } catch (error) {
+    next(error);
+  }
 });
 
-module.exports = app;
+// Create Posts //
+router.post("/", requireUser, async (req, res, next) => {
+  try {
+    const post = await createPost({
+      user_id: req.user.id,
+      title: req.body.title,
+      description: req.body.description,
+    });
+
+    res.send(post);
+  } catch (error) {
+    next(error);
+  }
+});
+
+export default router;
