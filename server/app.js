@@ -3,7 +3,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 import client from "./db/client.js";
-import seed from "./db/seed.js";
+import { seed } from "./db/seed.js";
 import apiRouter from "./api/index.js";
 
 const filename = fileURLToPath(import.meta.url);

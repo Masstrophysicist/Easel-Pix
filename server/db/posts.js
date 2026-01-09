@@ -1,5 +1,5 @@
-const path = require("path");
-const fileSaver = require("fs");
+import path from "path";
+import fs from "fs";
 
 const loadImage = (filePath) => {
   return new Promise((resolve, reject) => {
