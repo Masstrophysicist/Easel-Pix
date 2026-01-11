@@ -1,34 +1,70 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import "./index.css";
+import "./Auth/AboutMe";
+import "./Layout/NavBar";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <header>
+        <a>Search</a>
+        <a href="/feed">Easel-Pix</a>
+        <nav>
+          <a>Home</a>
+          <a>Notifications</a>
+          <a href="./Auth/AboutMe">Profile</a>
+        </nav>
+      </header>
+
+      <main>
+        <section>
+          <div className="images">
+            <div className="background">
+              <img
+              // src=
+              // alt="Background"
+              />
+
+              <div className="profilePicture">
+                <img
+                // src=
+                // alt="Profile"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <main className="posts">
+        <div className="accountNav">
+          <section>
+            <ul>Posts</ul>
+            <ul>Favorites</ul>
+            <ul>Followers</ul>
+            <ul>Following</ul>
+          </section>
+        </div>
+
+        <div className="postBack">
+          {posts.length === 0 ? (
+            <div className="postBody">
+              <h1>No posts yet</h1>
+            </div>
+          ) : (
+            posts.map((post) => (
+              <div className="postBody" key={post.id}>
+                <h1>{post.title}</h1>
+              </div>
+            ))
+          )}
+        </div>
+      </main>
+
+      <footer>Footer here</footer>
     </>
   );
 }

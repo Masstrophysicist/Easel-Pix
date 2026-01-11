@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useNavigate } from "react-router";
+import "./Layout/NavBar";
 
 const Login = ({ authorization }) => {
   const navigate = useNavigate();
