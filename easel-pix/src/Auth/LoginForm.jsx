@@ -4,7 +4,7 @@ import "./auth.css";
 
 const LoginForm = (authenticate) => {
   const login = async (formData) => {
-    const email = formData.get("email");
+    const email = formData.get("username");
     const password = formData.get("password");
     const user = {
       email,
@@ -28,7 +28,7 @@ const LoginForm = (authenticate) => {
       <div>
         <label>
           Username:
-          <input type="text" name="text" />
+          <input type="text" name="username" />
         </label>
       </div>
       <div>

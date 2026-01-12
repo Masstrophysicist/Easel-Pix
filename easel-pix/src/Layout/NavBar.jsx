@@ -1,7 +1,11 @@
 import { Link } from "react-router";
 import "./NavBar.css";
 
-const NavBar = ({ user }) => {
+const NavBar = ({ user, setUser }) => {
+  const logout = () => {
+    window.localStorage.removeItem("token");
+    setUser({});
+  };
   return (
     <nav className="NavBar">
       <form className="Search">
@@ -12,9 +16,20 @@ const NavBar = ({ user }) => {
         <Link to="/">Easel-Pix</Link>
       </div>
       <div className="Options">
-        <Link to="/user">Profile</Link>
-        <Link to="#">Notifications</Link>
-        <Link to="/login">Log-In</Link>
+        {user?.id ? (
+          <span>
+            <Link to="/user">Profile</Link>
+            <Link to="#">Notifications</Link>
+            <Link onClick={logout} to="/">
+              Logout
+            </Link>
+          </span>
+        ) : (
+          <span>
+            <Link to="/login">Login</Link>
+            <Link to="/register">Register</Link>
+          </span>
+        )}
       </div>
 
       {/* {user.id ? (
