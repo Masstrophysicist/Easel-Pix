@@ -1,0 +1,19 @@
+.postContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.post {
+  margin: 1rem;
+  border: 1px red;
+  padding: 1rem;
+}
+
+.post > img {
+  width: 250px;
+  height: 350px;
+}
+.singlePost > img {
+  width: 250px;
+  height: 350px;
+}
