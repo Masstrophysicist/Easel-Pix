@@ -22,7 +22,7 @@ function App() {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await axios.get("http://localhost:5173/api/posts");
+        const response = await axios.get("/api/images");
         setProfileData({
           backgroundUrl: response.data.backgroundImage,
           profilePicUrl: response.data.profileImage,

@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import "../App.css";
+import "./userPage.css";
 
 export default function HomePage() {
   const bgUrl =
@@ -9,45 +10,16 @@ export default function HomePage() {
   return (
     <div>
       <div
-        style={{
-          backgroundImage: `url(${bgUrl})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          height: "300px",
-          width: "100%",
-          position: "relative",
-          marginBottom: "60px",
-          marginTop: "20px",
-        }}
+        className="backgroundPic"
+        style={{ backgroundImage: `url(${bgUrl})` }}
       >
         <div
-          style={{
-            position: "absolute",
-            bottom: "-50px",
-            left: "40px",
-            width: "120px",
-            height: "120px",
-            borderRadius: "50%",
-            border: "5px solid white",
-            backgroundImage: `url(${profileUrl})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundColor: "#ccc",
-          }}
+          className="profilePicBorder"
+          style={{ backgroundImage: `url(${profileUrl})` }}
         ></div>
-        <div
-          style={{
-            position: "absolute",
-            bottom: "-85px", // Positioned below the profile picture
-            left: "40px", // Aligned with the left edge of the profile pic
-            fontSize: "24px",
-            fontWeight: "bold",
-            color: "#333",
-            marginBottom: "5px",
-            marginLeft: "5px",
-          }}
-        >
-          Orlando Alata
+        <div className="profilePic">
+          {/* Profile Name or Content here */}
+          John Doe
         </div>
       </div>
 
