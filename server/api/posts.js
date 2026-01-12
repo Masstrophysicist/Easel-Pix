@@ -1,7 +1,7 @@
 import express from "express";
 import requireUser from "../middleware/requireUser.js";
 import { createPost, fetchAllPosts, fetchPostsByUser } from "../db/posts.js";
-import { loadImage } from "../utils/loadImage.js";
+import { loadImage } from "../utills/loadImage.js";
 
 const router = express.Router();
 
