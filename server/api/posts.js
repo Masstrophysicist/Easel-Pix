@@ -5,7 +5,7 @@ import { loadImage } from "../utils/loadImage.js";
 
 const router = express.Router();
 
-//PUBLIC FEED — all posts//
+//Showing all posts//
 router.get("/", async (req, res, next) => {
   try {
     const posts = await fetchAllPosts();
@@ -15,7 +15,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-//LOGGED-IN USER FEED — my posts//
+//Shows my posts//
 router.get("/me", requireUser, async (req, res, next) => {
   try {
     const posts = await fetchPostsByUser(req.user.id);
@@ -34,7 +34,7 @@ router.get("/:id/image", requireUser, async (req, res, next) => {
   }
 });
 
-//CREATE POST — logged in//
+//Creating a post (Logged In)//
 router.post("/", requireUser, async (req, res, next) => {
   try {
     const post = await createPost({
