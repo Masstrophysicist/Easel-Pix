@@ -1,6 +1,6 @@
 import React from "react";
-import "./settings.css";
-import "./Layout/NavBar";
+// import "./settings.css";
+import "../Layout/NavBar";
 
 function AboutMe() {
   return (
