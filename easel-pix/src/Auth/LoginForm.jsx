@@ -2,7 +2,7 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 import "./auth.css";
 
-const LoginForm = (authenticate) => {
+const LoginForm = ({ setUser }) => {
   const navigate = useNavigate();
   const login = async (formData) => {
     const username = formData.get("username");
@@ -12,9 +12,9 @@ const LoginForm = (authenticate) => {
       password,
     };
     try {
-      const { data } = await axios.post("/api/login", user);
+      const { data } = await axios.post("/api/auth/login", user);
       window.localStorage.setItem("token", data.token);
-      authenticate();
+      setUser({ token: data.token });
       navigate("/");
     } catch (error) {
       console.error(error);

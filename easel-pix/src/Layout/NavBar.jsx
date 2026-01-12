@@ -4,7 +4,7 @@ import "./NavBar.css";
 const NavBar = ({ user, setUser }) => {
   const logout = () => {
     window.localStorage.removeItem("token");
-    setUser({});
+    setUser(null);
   };
   return (
     <nav className="NavBar">
@@ -16,7 +16,7 @@ const NavBar = ({ user, setUser }) => {
         <Link to="/">Easel-Pix</Link>
       </div>
       <div className="Options">
-        {user?.id ? (
+        {user?.token ? (
           <span>
             <Link to="/user">Profile</Link>
             <Link to="#">Notifications</Link>
