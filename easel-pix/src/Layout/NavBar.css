@@ -1,0 +1,10 @@
+.NavBar {
+  background-color: lightblue;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.NavBar .Search {
+  flex-grow: 1;
+}

@@ -1,22 +1,17 @@
 import { useState } from "react";
+import NavBar from "./Layout/NavBar";
 import "./App.css";
 import "./index.css";
 import "./Auth/AboutMe";
-import "./Layout/NavBar";
 
 function App() {
   const [count, setCount] = useState(0);
+  const [background, setBackground] = useState(null);
 
   return (
     <>
       <header>
-        <a>Search</a>
-        <a href="/feed">Easel-Pix</a>
-        <nav>
-          <a>Home</a>
-          <a>Notifications</a>
-          <a href="./Auth/AboutMe">Profile</a>
-        </nav>
+        <NavBar></NavBar>
       </header>
 
       <main>
@@ -49,7 +44,7 @@ function App() {
           </section>
         </div>
 
-        <div className="postBack">
+        {/* <div className="postBack">
           {posts.length === 0 ? (
             <div className="postBody">
               <h1>No posts yet</h1>
@@ -61,7 +56,7 @@ function App() {
               </div>
             ))
           )}
-        </div>
+        </div> */}
       </main>
 
       <footer>Footer here</footer>
