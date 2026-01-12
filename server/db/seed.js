@@ -5,7 +5,8 @@ import { createPost } from "./posts.js";
 export const seed = async () => {
   try {
     await client.query("TRUNCATE posts, users RESTART IDENTITY CASCADE;");
-    // Users Created //
+
+    //Users Created//
     const [orlando, zach, tyler] = await Promise.all([
       createUser({
         username: "orlando123",
@@ -33,7 +34,7 @@ export const seed = async () => {
       }),
     ]);
 
-    // Create Posts //
+    //Create Posts//
 
     await Promise.all([
       createPost({
