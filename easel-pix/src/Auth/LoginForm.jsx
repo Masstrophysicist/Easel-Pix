@@ -3,21 +3,19 @@ import { useNavigate } from "react-router";
 import "./auth.css";
 
 const LoginForm = (authenticate) => {
+  const navigate = useNavigate();
   const login = async (formData) => {
-    const email = formData.get("username");
+    const username = formData.get("username");
     const password = formData.get("password");
     const user = {
-      email,
+      username,
       password,
     };
     try {
-      const { data } = await axios.post(
-        //"Database Link",
-        user
-      );
-      console.log(data);
+      const { data } = await axios.post("/api/login", user);
       window.localStorage.setItem("token", data.token);
-      //authenticate(window.localStorage.getItem("token"));
+      authenticate();
+      navigate("/");
     } catch (error) {
       console.error(error);
     }
