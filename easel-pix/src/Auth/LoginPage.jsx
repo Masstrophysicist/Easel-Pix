@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import LoginForm from "./LoginForm";
 
-export function LoginPage() {
+export default function LoginPage() {
   return (
     <div>
       <LoginForm />
