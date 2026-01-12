@@ -4,8 +4,7 @@ import { createPost } from "./posts.js";
 
 export const seed = async () => {
   try {
-    await client.connect();
-
+    await client.query("TRUNCATE posts, users RESTART IDENTITY CASCADE;");
     // Users Created //
     const [orlando, zach, tyler] = await Promise.all([
       createUser({
@@ -57,9 +56,6 @@ export const seed = async () => {
   } catch (error) {
     console.error(error);
   } finally {
-    await client.end();
     console.log("Database seeded");
   }
 };
-
-await seed();
