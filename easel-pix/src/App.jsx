@@ -6,7 +6,7 @@ import "./index.css";
 import "./Auth/AboutMe";
 import { Routes, Route } from "react-router";
 import HomePage from "./Pages/Homepage";
-import LoginPage from "./Auth/LoginPage";
+import { LoginPage } from "./Auth/LoginPage";
 import FeedPage from "./Pages/FeedPage";
 // import "./Posts/posts.css";
 
