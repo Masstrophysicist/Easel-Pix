@@ -1,12 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NavBar from "./Layout/NavBar";
 import "./App.css";
 import "./index.css";
 import "./Auth/AboutMe";
+// import "./Posts/posts.css";
 
 function App() {
   const [count, setCount] = useState(0);
   const [background, setBackground] = useState(null);
+
+  // useEffect(() => {
+  //   const fetchImages = async () => {
+  //     try {
+  //       // Replace with our actual API endpoint
+  //       const response = await fetch(
+  //         "https://github.com/Masstrophysicist/Easel-Pix/easel-pix/server/images"
+  //       );
+  //       const data = await response.json();
+
+  //       setProfileData({
+  //         backgroundUrl: data.backgroundImage, // Matches your DB column name
+  //         profilePicUrl: data.profileImage,
+  //       });
+  //     } catch (error) {
+  //       console.error("Error fetching images:", error);
+  //     }
+  //   };
+  //   fetchImages();
+  // }, []);
 
   return (
     <>
@@ -15,20 +36,19 @@ function App() {
       </header>
 
       <main>
-        <section>
-          <div className="images">
+        <section className="images">
+          <div>
             <div className="background">
               <img
               // src=
               // alt="Background"
               />
-
-              <div className="profilePicture">
-                <img
-                // src=
-                // alt="Profile"
-                />
-              </div>
+            </div>
+            <div className="profilePicture">
+              <img
+              // src=
+              // alt="Profile"
+              />
             </div>
           </div>
         </section>
@@ -43,6 +63,8 @@ function App() {
             <ul>Following</ul>
           </section>
         </div>
+
+        <div className="List">Hello</div>
 
         {/* <div className="postBack">
           {posts.length === 0 ? (
@@ -59,7 +81,7 @@ function App() {
         </div> */}
       </main>
 
-      <footer>Footer here</footer>
+      <footer>Easel-Pix by Mastrophysicists</footer>
     </>
   );
 }

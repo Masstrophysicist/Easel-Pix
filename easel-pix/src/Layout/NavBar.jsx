@@ -8,8 +8,11 @@ const NavBar = ({ user }) => {
         <input type="text" name="search" />
         <button type="submit">Search</button>
       </form>
-      <Link to="/feed">Easel-Pix</Link>
-      <Link to="/">Home</Link>
+      <div className="Options">
+        <Link to="/feed">Easel-Pix</Link>
+        <Link to="/">Home</Link>
+        <Link to="../Auth/LoginPage.jsx">Log-In</Link>
+      </div>
 
       {/* {user.id ? (
         <span>

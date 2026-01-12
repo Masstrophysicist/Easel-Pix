@@ -2,7 +2,7 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 import "./Layout/NavBar";
 
-const Login = ({ authorization }) => {
+const LoginForm = ({ authorization }) => {
   const navigate = useNavigate();
   const login = async (formData) => {
     const username = formData.get("username");
@@ -32,4 +32,4 @@ const Login = ({ authorization }) => {
   );
 };
 
-export default Login;
+export default LoginForm;
