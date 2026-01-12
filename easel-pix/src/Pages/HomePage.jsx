@@ -62,7 +62,7 @@ export default function HomePage() {
         <div className="List">
           {Array.from({ length: 10 }).map((_, index) => (
             <div key={index} className="post-item">
-              {/* If you have images from your database, they would go here */}
+              {/*database images go here */}
               <div className="post-content-area">
                 {/* img tag goes here later */}
               </div>

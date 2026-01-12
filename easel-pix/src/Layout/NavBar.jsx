@@ -9,12 +9,12 @@ const NavBar = ({ user }) => {
         <button type="submit">Search</button>
       </form>
       <div className="Logo">
-        <Link to="/feed">Easel-Pix</Link>
+        <Link to="/">Easel-Pix</Link>
       </div>
       <div className="Options">
-        <Link to="/">Home</Link>
+        <Link to="/user">Profile</Link>
         <Link to="#">Notifications</Link>
-        <Link to="../Auth/LoginPage">Log-In</Link>
+        <Link to="/login">Log-In</Link>
       </div>
 
       {/* {user.id ? (

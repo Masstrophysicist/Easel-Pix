@@ -8,6 +8,7 @@ import { Routes, Route } from "react-router";
 import HomePage from "./Pages/Homepage";
 import LoginPage from "./Auth/LoginPage";
 import FeedPage from "./Pages/FeedPage";
+import { RegisterPage } from "./Auth/RegisterPage";
 // import "./Posts/posts.css";
 
 function App() {
@@ -42,13 +43,14 @@ function App() {
 
       <main>
         <Routes>
-          <Route exact path="/" element={<HomePage />} />
-          <Route exact path="/feed" element={<FeedPage />} />
+          <Route exact path="/user" element={<HomePage />} />
+          <Route exact path="/" element={<FeedPage />} />
           <Route exact path="/login" element={<LoginPage />} />
+          <Route exact path="/register" element={<RegisterPage />} />
         </Routes>
       </main>
 
-      <footer>Easel-Pix by Mastrophysicists</footer>
+      <footer className="footer">Easel-Pix by Mastrophysicists</footer>
     </>
   );
 }
