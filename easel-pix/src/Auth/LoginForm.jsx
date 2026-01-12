@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useNavigate } from "react-router";
+import "./auth.css";
 
 const LoginForm = (authenticate) => {
   const login = async (formData) => {
@@ -11,7 +12,7 @@ const LoginForm = (authenticate) => {
     };
     try {
       const { data } = await axios.post(
-        "https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/users/login",
+        //"Database Link",
         user
       );
       console.log(data);
@@ -26,8 +27,8 @@ const LoginForm = (authenticate) => {
     <form action={login}>
       <div>
         <label>
-          Email:
-          <input type="email" name="email" />
+          Username:
+          <input type="text" name="text" />
         </label>
       </div>
       <div>
