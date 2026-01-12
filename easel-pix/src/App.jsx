@@ -4,7 +4,7 @@ import NavBar from "./Layout/NavBar";
 import "./App.css";
 import "./index.css";
 import "./Auth/AboutMe";
-import { Link, Routes, Route } from "react-router";
+import { Routes, Route } from "react-router";
 import HomePage from "./Pages/Homepage";
 import { LoginPage } from "./Auth/LoginPage";
 import FeedPage from "./Pages/FeedPage";

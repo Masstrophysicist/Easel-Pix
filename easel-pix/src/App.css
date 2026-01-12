@@ -28,7 +28,7 @@
 .posts .List {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(3, minmax(200px, auto));
+  grid-template-rows: repeat(2, minmax(200px, auto));
   gap: 20px;
   background-color: transparent;
   color: black;
@@ -36,20 +36,29 @@
   padding: 10px;
 }
 
-.posts-item {
-  background-color: gray;
-  border: 2px solid #333;
+.post-item {
+  background-color: lightgray;
+  border: 2px solid black;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   overflow: hidden;
 }
 
+.post-footer {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border-top: 2px solid black;
+}
+
 .tempBG {
   background-color: green;
   width: 100%;
   height: 240px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .background {
