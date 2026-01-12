@@ -1,23 +1,21 @@
 import axios from "axios";
+import { useNavigate } from "react-router";
 
-const RegisterForm = ({ authenticate }) => {
+const RegisterForm = ({ setUser }) => {
+  const navigate = useNavigate();
   const register = async (formData) => {
-    const email = formData.get("email");
     const username = formData.get("username");
     const password = formData.get("password");
     const user = {
       username,
-      email,
       password,
     };
     try {
-      const { data } = await axios.post(
-        // "Link Here Orlando",
-        user
-      );
+      const { data } = await axios.post("/api/auth/register", user);
       const token = data.token;
       window.localStorage.setItem("token", token);
-      authenticate(token);
+      setUser({ token });
+      navigate("/");
     } catch (error) {
       console.error(error);
     }

@@ -18,6 +18,7 @@ function App() {
     backgroundUrl: "",
     profilePicUrl: "",
   });
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -38,15 +39,23 @@ function App() {
   return (
     <>
       <header>
-        <NavBar></NavBar>
+        <NavBar user={user} setUser={setUser}></NavBar>
       </header>
 
       <main>
         <Routes>
           <Route exact path="/user" element={<HomePage />} />
           <Route exact path="/" element={<FeedPage />} />
-          <Route exact path="/login" element={<LoginPage />} />
-          <Route exact path="/register" element={<RegisterPage />} />
+          <Route
+            exact
+            path="/login"
+            element={<LoginPage setUser={setUser} />}
+          />
+          <Route
+            exact
+            path="/register"
+            element={<RegisterPage setUser={setUser} />}
+          />
         </Routes>
       </main>
 
