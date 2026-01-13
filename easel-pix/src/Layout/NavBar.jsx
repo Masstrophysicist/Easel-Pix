@@ -31,17 +31,6 @@ const NavBar = ({ user, setUser }) => {
           </span>
         )}
       </div>
-
-      {/* {user.id ? (
-        <span>
-          <Link to="#">Notifications</Link>
-          <Link to="./Auth/AboutMe">About Me</Link>
-        </span>
-      ) : (
-        <span>
-          <Link to="./LoginPage">Login</Link>
-        </span>
-      )} */}
     </nav>
   );
 };
