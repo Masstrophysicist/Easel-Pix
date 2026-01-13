@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import "../App.css";
 import "./userPage.css";
 
-export default function HomePage() {
+export default function HomePage({ user, setProfileData }) {
   const bgUrl =
     "https://www.thediscoveriesof.com/wp-content/uploads/2022/06/Mountain-Landscape-in-Colorado-Rocky-Mountains-Colorado-United-States..jpg.webp";
   const profileUrl =
@@ -17,10 +17,8 @@ export default function HomePage() {
           className="profilePicBorder"
           style={{ backgroundImage: `url(${profileUrl})` }}
         ></div>
-        <div className="profilePic">
-          {/* Profile Name or Content here */}
-          John Doe
-        </div>
+        <div className="profilePic"></div>
+        <div className="profileName">John Doe</div>
       </div>
 
       <div className="posts">
@@ -36,7 +34,7 @@ export default function HomePage() {
             <div key={index} className="post-item">
               {/*database images go here */}
               <div className="post-content-area">
-                {/* img tag goes here later */}
+                {/* post img tag goes here later */}
               </div>
 
               <div className="post-footer">

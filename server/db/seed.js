@@ -7,7 +7,7 @@ export const seed = async () => {
     await client.query("TRUNCATE posts, users RESTART IDENTITY CASCADE;");
 
     //Users Created//
-    const [orlando, zach, tyler] = await Promise.all([
+    const [orlando, zak, tyler] = await Promise.all([
       createUser({
         username: "orlando123",
         displayname: "Orlando",
@@ -38,7 +38,7 @@ export const seed = async () => {
 
     await Promise.all([
       createPost({
-        user_id: zach.id,
+        user_id: zak.id,
         title: "New Beginnings",
         description: "This is the start to my journey as an engineer.",
       }),
@@ -54,6 +54,7 @@ export const seed = async () => {
           "I enjoy soccer a lot and here is a moment I'd like to share.",
       }),
     ]);
+    console.log("You've made it");
   } catch (error) {
     console.error(error);
   } finally {
