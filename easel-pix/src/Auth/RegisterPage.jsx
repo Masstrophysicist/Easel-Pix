@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import RegisterForm from "./RegisterForm";
 import "./auth.css";
 
-export function RegisterPage({ setUser }) {
+export default function RegisterPage({ setUser }) {
   return (
     <div className="Register">
       <h1>Welcome to Easel-Pix!</h1>

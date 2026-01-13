@@ -8,8 +8,7 @@ import { Routes, Route } from "react-router";
 import HomePage from "./Pages/Homepage";
 import LoginPage from "./Auth/LoginPage";
 import FeedPage from "./Pages/FeedPage";
-import { RegisterPage } from "./Auth/RegisterPage";
-// import "./Posts/posts.css";
+import RegisterPage from "./Auth/RegisterPage";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -20,22 +19,6 @@ function App() {
   });
   const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        const response = await axios.get("/api/images");
-        setProfileData({
-          backgroundUrl: response.data.backgroundImage,
-          profilePicUrl: response.data.profileImage,
-        });
-      } catch (error) {
-        console.error("Error fetching images", error.message);
-      }
-    };
-
-    fetchImages();
-  }, []);
-
   return (
     <>
       <header>
@@ -44,7 +27,11 @@ function App() {
 
       <main>
         <Routes>
-          <Route exact path="/user" element={<HomePage />} />
+          <Route
+            exact
+            path="/user"
+            element={<HomePage user={user} setProfileData={setProfileData} />}
+          />
           <Route exact path="/" element={<FeedPage />} />
           <Route
             exact

@@ -12,7 +12,7 @@ export default function FeedPage() {
     },
     {
       id: 2,
-      name: "Zach",
+      name: "Zak",
       title: "Frontend Feed UI",
       desc: "Designed a clean feed layout for portfolio posts.",
       image: "https://picsum.photos/600/300?random=2",

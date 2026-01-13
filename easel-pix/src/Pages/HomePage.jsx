@@ -1,12 +1,39 @@
 import { Link } from "react-router";
 import "../App.css";
 import "./userPage.css";
+import { useEffect } from "react";
 
-export default function HomePage() {
+export default function HomePage({ user, setProfileData }) {
   const bgUrl =
     "https://www.thediscoveriesof.com/wp-content/uploads/2022/06/Mountain-Landscape-in-Colorado-Rocky-Mountains-Colorado-United-States..jpg.webp";
   const profileUrl =
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSalPUqb1gpbBibzSAKkG_3QISmsftnXoURZEc4LCnudqiy3mazEuW48k1eBclvAs75oT0SWbRGmOdHVIBUhtYIGdCC7oqOsTz0qA8nPA&s=10";
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+      } catch (error) {
+        console.log("Error fetching user", error.message);
+      }
+    };
+
+    fetchUser;
+
+    const fetchImages = async () => {
+      try {
+        const response = await axios.get("/api/images");
+        setProfileData({
+          backgroundUrl: response.data.bannerPicture,
+          profilePicUrl: response.data.profilePicture,
+        });
+      } catch (error) {
+        console.error("Error fetching images", error.message);
+      }
+    };
+
+    fetchImages();
+  }, []);
+
   return (
     <div>
       <div
@@ -17,10 +44,8 @@ export default function HomePage() {
           className="profilePicBorder"
           style={{ backgroundImage: `url(${profileUrl})` }}
         ></div>
-        <div className="profilePic">
-          {/* Profile Name or Content here */}
-          John Doe
-        </div>
+        <div className="profilePic"></div>
+        <div className="profileName">John Doe</div>
       </div>
 
       <div className="posts">
@@ -36,7 +61,7 @@ export default function HomePage() {
             <div key={index} className="post-item">
               {/*database images go here */}
               <div className="post-content-area">
-                {/* img tag goes here later */}
+                {/* post img tag goes here later */}
               </div>
 
               <div className="post-footer">
