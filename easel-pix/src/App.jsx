@@ -19,33 +19,6 @@ function App() {
   });
   const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        const response = await axios.get("/api/images");
-        setProfileData({
-          backgroundUrl: response.data.bannerPicture,
-          profilePicUrl: response.data.profilePicture,
-        });
-      } catch (error) {
-        console.error("Error fetching images", error.message);
-      }
-    };
-
-    fetchImages();
-  }, []);
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-      } catch (error) {
-        console.log("Error fetching user", error.message);
-      }
-    };
-
-    fetchUser;
-  }, []);
-
   return (
     <>
       <header>

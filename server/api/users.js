@@ -13,4 +13,7 @@ router.post("/", async (req, res, next) => {
   }
 });
 
+// get user details
+router.get("/:id", async (req, res, next) => {});
+
 export default router;

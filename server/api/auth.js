@@ -19,4 +19,14 @@ router.get("/me", requireUser, (req, res) => {
   res.send(req.user);
 });
 
+// register user
+router.post("/register", async (req, res, next) => {
+  try {
+    const user = await createUser(req.body);
+    res.send(user);
+  } catch (err) {
+    next(err);
+  }
+});
+
 export default router;
