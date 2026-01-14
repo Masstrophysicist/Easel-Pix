@@ -1,41 +1,46 @@
 import axios from "axios";
 import { useNavigate } from "react-router";
+import { useRef } from "react";
 
 const RegisterForm = ({ setUser }) => {
   const navigate = useNavigate();
-  const register = async (formData) => {
-    const username = formData.get("username");
-    const password = formData.get("password");
-    const user = {
-      username,
-      password,
-    };
+  const usernameRef = useRef();
+  const passwordRef = useRef();
+
+  const register = async () => {
+    const username = usernameRef.current.value;
+    const password = passwordRef.current.value;
+
     try {
-      const { data } = await axios.post("/api/auth/register", user);
-      const token = data.token;
-      window.localStorage.setItem("token", token);
-      setUser({ token });
-      navigate("/");
+      const { data } = await axios.post("/api/users", { username, password });
+
+      //Register does not give a token so just navigate to login//
+      console.log("Registered user:", data);
+      navigate("/login");
     } catch (error) {
-      console.error(error);
+      console.error(error.response?.data || error);
     }
   };
 
   return (
-    <form action={register}>
+    <form>
       <div>
         <label>
           Username:
-          <input type="text" name="username" />
+          <input type="text" ref={usernameRef} />
         </label>
       </div>
+
       <div>
         <label>
           Password:
-          <input type="password" name="password" />
+          <input type="password" ref={passwordRef} />
         </label>
       </div>
-      <button type="submit"> Register </button>
+
+      <button type="button" onClick={register}>
+        Register
+      </button>
     </form>
   );
 };
