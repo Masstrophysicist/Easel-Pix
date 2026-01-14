@@ -3,6 +3,7 @@ import { findUserByToken } from "../db/auth.js";
 const requireUser = async (req, res, next) => {
   try {
     const auth = req.headers.authorization;
+    console.log("auth", auth);
 
     if (!auth) {
       const error = Error("authorization required");

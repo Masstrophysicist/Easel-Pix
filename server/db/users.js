@@ -1,15 +1,6 @@
 import client from "./client.js";
 import bcrypt from "bcrypt";
 
-export const findUserByUsername = async (username) => {
-  const SQL = `
-  SELECT *
-  FROM users
-  WHERE username = $1
-  `;
-  const response = await client.query(SQL, [username]);
-  return response.rows[0];
-};
 export const createUser = async ({
   username,
   password,
@@ -47,6 +38,6 @@ export const getUserById = async (id) => {
   `;
   const {
     rows: [user],
-  } = await db.query(sql, [id]);
+  } = await client.query(sql, [id]);
   return user;
 };
