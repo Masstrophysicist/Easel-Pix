@@ -2,14 +2,17 @@ import express from "express";
 import client from "./db/client.js";
 import apiRouter from "./api/index.js";
 import { seed } from "./db/seed.js";
+import getUserFromToken from "./middleware/getUserFromToken.js";
+import usersRouter from "./api/users.js";
 
 const app = express();
 
 app.use(express.json());
+app.use(getUserFromToken);
 
 //API//
 app.use("/api", apiRouter);
-
+app.use("/users", usersRouter);
 //Serve local images folder if you have one//
 app.use("/images", express.static("server/images"));
 

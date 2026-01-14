@@ -13,10 +13,7 @@ import RegisterPage from "./Auth/RegisterPage";
 function App() {
   const [count, setCount] = useState(0);
   const [background, setBackground] = useState(null);
-  const [profileData, setProfileData] = useState({
-    backgroundUrl: "",
-    profilePicUrl: "",
-  });
+
   const [user, setUser] = useState(null);
 
   return (
@@ -30,7 +27,7 @@ function App() {
           <Route
             exact
             path="/user"
-            element={<HomePage user={user} setProfileData={setProfileData} />}
+            element={<HomePage setUser={setUser} user={user} />}
           />
           <Route exact path="/" element={<FeedPage />} />
           <Route
