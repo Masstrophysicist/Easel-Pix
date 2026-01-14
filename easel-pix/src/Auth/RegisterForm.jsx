@@ -31,6 +31,12 @@ const RegisterForm = ({ setUser }) => {
       </div>
       <div>
         <label>
+          Display Name:
+          <input type="text" name="displayName" />
+        </label>
+      </div>
+      <div>
+        <label>
           Password:
           <input type="password" name="password" />
         </label>
