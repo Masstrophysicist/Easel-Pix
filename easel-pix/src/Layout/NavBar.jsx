@@ -25,10 +25,10 @@ const NavBar = ({ user, setUser }) => {
             <Link onClick={logout} to="/">
               Logout
             </Link>
-            <div
+            {/* <div
               className="Icon"
               style={{ backgroundImage: `url(${profileUrl})` }}
-            />
+            /> */}
           </span>
         ) : (
           <span>

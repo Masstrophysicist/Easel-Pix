@@ -38,24 +38,26 @@ export default function HomePage({ setUser, user }) {
 
     fetchUser();
   }, []);
+  console.log("Current Banner Path:", user?.banner || genericBanner);
+  console.log("Current Profile Path:", user?.profilePicture || genericProfile);
 
   return (
     <div>
       <div
         className="backgroundPic"
         style={{
-          backgroundImage: `url(${user?.banner ? user.banner : genericBanner})`,
+          backgroundImage: `url(${user?.banner || genericBanner})`,
         }}
       >
         <div
           className="profilePicBorder"
           style={{
-            backgroundImage: `url(${
-              user?.profilePicture ? user.profilePicture : genericProfile
-            })`,
+            backgroundImage: `url(${user?.profilePicture || genericProfile})`,
           }}
         ></div>
-        <div className="profileName">{user?.displayname}</div>
+        <div className="profileName">
+          {user?.displayname} - {user?.biography || "New User"}
+        </div>
       </div>
 
       <div className="posts">

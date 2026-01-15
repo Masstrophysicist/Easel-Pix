@@ -1,10 +1,17 @@
 import client from "./client.js";
 import { createUser } from "./users.js";
 import { createPost } from "./posts.js";
+import { loadImage } from "../utills/loadImage.js";
 
 export const seed = async () => {
   try {
     await client.query("TRUNCATE posts, users RESTART IDENTITY CASCADE;");
+    const orlandopfp = loadImage("../images/orlandopfp.jpg");
+    const orlandobg = loadImage("../images/orlandobanner.jpg");
+    const zakpfp = loadImage("../images/zakpfp.JPG");
+    const zakbg = loadImage("../images/zakbanner.jpg");
+    const tylerpfp = loadImage("../images/tylerpfp.jpg");
+    const tylerbg = loadImage("../images/tylerbanner.jpg");
 
     //Users Created//
     const [orlando, zak, tyler] = await Promise.all([
@@ -13,24 +20,24 @@ export const seed = async () => {
         displayname: "Orlando",
         biography: "Backend Developer",
         password: "or12345",
-        profilePicture: "../images/orlandopfp.jpg",
-        banner: "../images/orlandobanner.jpg",
+        profilePicture: orlandopfp,
+        banner: orlandobg,
       }),
       createUser({
         username: "zak123",
         displayname: "Zak",
         biography: "Frontend Developer",
         password: "za12345",
-        profilePicture: "../images/zakpfp.JPG",
-        banner: "../images/zakbanner.jpg",
+        profilePicture: zakpfp,
+        banner: zakbg,
       }),
       createUser({
         username: "tyler123",
         displayname: "Tyler",
         biography: "Software Engineer",
         password: "ty12345",
-        profilePicture: "../images/tylerpfp.jpg",
-        banner: "../images/tylerbanner.jpg",
+        profilePicture: tylerpfp,
+        banner: tylerbg,
       }),
     ]);
 
