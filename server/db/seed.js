@@ -6,12 +6,12 @@ import { loadImage } from "../utills/loadImage.js";
 export const seed = async () => {
   try {
     await client.query("TRUNCATE posts, users RESTART IDENTITY CASCADE;");
-    const orlandopfp = loadImage("../images/orlandopfp.jpg");
-    const orlandobg = loadImage("../images/orlandobanner.jpg");
-    const zakpfp = loadImage("../images/zakpfp.JPG");
-    const zakbg = loadImage("../images/zakbanner.jpg");
-    const tylerpfp = loadImage("../images/tylerpfp.jpg");
-    const tylerbg = loadImage("../images/tylerbanner.jpg");
+    const orlandopfp = await loadImage("../images/orlandopfp.jpg");
+    const orlandobg = await loadImage("../images/orlandobanner.jpg");
+    const zakpfp = await loadImage("../images/zakpfp.JPG");
+    const zakbg = await loadImage("../images/zakbanner.jpg");
+    const tylerpfp = await loadImage("../images/tylerpfp.jpg");
+    const tylerbg = await loadImage("../images/tylerbanner.jpg");
 
     //Users Created//
     const [orlando, zak, tyler] = await Promise.all([

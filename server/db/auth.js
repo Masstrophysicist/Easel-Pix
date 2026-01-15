@@ -31,7 +31,7 @@ export const authenticate = async ({ username, password }) => {
     error.status = 401;
     throw error;
   }
-  console.log("JWT_Secret is", JWT_SECRET);
+  // console.log("JWT_Secret is", JWT_SECRET);
   const token = jwt.sign({ id: response.rows[0].id }, JWT_SECRET, {
     expiresIn: "7d",
   });

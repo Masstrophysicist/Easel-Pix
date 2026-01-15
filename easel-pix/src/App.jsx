@@ -11,10 +11,9 @@ import FeedPage from "./Pages/FeedPage";
 import RegisterPage from "./Auth/RegisterPage";
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [background, setBackground] = useState(null);
+  // const [count, setCount] = useState(0);
+  // const [background, setBackground] = useState(null);
   const [user, setUser] = useState(null);
-  console.log("token gotten", window.localStorage.getItem("token"));
   const getHeaders = () => {
     return {
       headers: {
