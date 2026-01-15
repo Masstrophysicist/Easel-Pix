@@ -44,9 +44,7 @@ export default function HomePage({ setUser, user }) {
       <div
         className="backgroundPic"
         style={{
-          backgroundImage: `url(${
-            user?.bannerPicture ? user.bannerPicture : genericBanner
-          })`,
+          backgroundImage: `url(${user?.banner ? user.banner : genericBanner})`,
         }}
       >
         <div

@@ -44,7 +44,7 @@ export const findUserByToken = async (token) => {
     const payload = verifyToken(token);
 
     const SQL = `
-      SELECT id, username, displayname, biography
+      SELECT id, username, displayname, biography, profilePicture, banner
       FROM users
       WHERE id = $1
       `;

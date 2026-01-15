@@ -6,7 +6,7 @@ CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username TEXT UNIQUE NOT NULL,
     displayname TEXT NOT NULL,
-    profilepicture TEXT,
+    profilePicture TEXT,
     banner TEXT,
     biography TEXT,
     password TEXT NOT NULL
