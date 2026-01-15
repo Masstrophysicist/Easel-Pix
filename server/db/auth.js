@@ -1,5 +1,7 @@
 import client from "./client.js";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import { JWT_SECRET } from "../../env.js";
 import { createToken, verifyToken } from "../utills/jwt.js";
 
 export const authenticate = async ({ username, password }) => {
@@ -29,8 +31,10 @@ export const authenticate = async ({ username, password }) => {
     error.status = 401;
     throw error;
   }
-
-  const token = createToken({ id: response.rows[0].id });
+  console.log("JWT_Secret is", JWT_SECRET);
+  const token = jwt.sign({ id: response.rows[0].id }, JWT_SECRET, {
+    expiresIn: "7d",
+  });
 
   return { token };
 };
