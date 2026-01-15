@@ -11,7 +11,7 @@ export default function HomePage({ setUser, user }) {
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSalPUqb1gpbBibzSAKkG_3QISmsftnXoURZEc4LCnudqiy3mazEuW48k1eBclvAs75oT0SWbRGmOdHVIBUhtYIGdCC7oqOsTz0qA8nPA&s=10";
 
   useEffect(() => {
-    console.log(user);
+    console.log("User", user);
   }, [user]);
 
   useEffect(() => {
@@ -28,9 +28,10 @@ export default function HomePage({ setUser, user }) {
           "http://localhost:3000/api/auth/me",
           getHeaders()
         );
-        console.log("Hello User", response);
+        // console.log("Hello User", response);
         const fetchedUser = response.data;
         setUser((prevUser) => ({ ...prevUser, ...fetchedUser }));
+        // console.log("UE_Picture", user.banner);
       } catch (error) {
         console.log("Error fetching user", error.message);
       }
@@ -44,18 +45,18 @@ export default function HomePage({ setUser, user }) {
       <div
         className="backgroundPic"
         style={{
-          backgroundImage: `url(${user?.banner ? user.banner : genericBanner})`,
+          backgroundImage: `url(${user?.banner || genericBanner})`,
         }}
       >
         <div
           className="profilePicBorder"
           style={{
-            backgroundImage: `url(${
-              user?.profilePicture ? user.profilePicture : genericProfile
-            })`,
+            backgroundImage: `url(${user?.profilepicture || genericProfile})`,
           }}
         ></div>
-        <div className="profileName">{user?.displayname}</div>
+        <div className="profileName">
+          {user?.displayname} - {user?.biography || "New User"}
+        </div>
       </div>
 
       <div className="posts">

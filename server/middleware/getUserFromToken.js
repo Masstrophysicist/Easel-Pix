@@ -6,7 +6,6 @@ export default async function getUserFromToken(req, res, next) {
   if (!authorization || !authorization.startsWith("Bearer ")) return next();
 
   const token = authorization.split(" ")[1];
-  console.log("token", token);
   try {
     console.log("getUserFromToken");
     const { id } = verifyToken(token);

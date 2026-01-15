@@ -18,17 +18,17 @@ const NavBar = ({ user, setUser }) => {
         <Link to="/">Easel-Pix</Link>
       </div>
       <div className="Options">
-        {user?.token ? (
+        {user?.token || localStorage.getItem("token") ? (
           <span>
             <Link to="/user">Profile </Link>
             <Link to="#">Notifications </Link>
             <Link onClick={logout} to="/">
               Logout
             </Link>
-            <div
+            {/* <div
               className="Icon"
               style={{ backgroundImage: `url(${profileUrl})` }}
-            />
+            /> */}
           </span>
         ) : (
           <span>

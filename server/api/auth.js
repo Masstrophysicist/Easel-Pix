@@ -9,7 +9,6 @@ const router = express.Router();
 router.post("/login", async (req, res, next) => {
   try {
     const result = await authenticate(req.body);
-    console.log("Login");
     res.send(result);
   } catch (error) {
     next(error);
@@ -18,7 +17,7 @@ router.post("/login", async (req, res, next) => {
 
 //This is for the specific user//
 router.get("/me", requireUser, (req, res) => {
-  console.log("testing me", req.user);
+  // console.log("testing me", req.user);
   res.send(req.user);
 });
 
