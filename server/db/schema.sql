@@ -5,8 +5,8 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username TEXT UNIQUE NOT NULL,
-    displayname TEXT,
-    profilepicture TEXT,
+    displayname TEXT NOT NULL,
+    profilePicture TEXT,
     banner TEXT,
     biography TEXT,
     password TEXT NOT NULL

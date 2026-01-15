@@ -18,7 +18,7 @@ function AboutMe() {
       <main>
         <section>
           <div>
-            <h1>Welcome to Your Profile [User]</h1>
+            <h1>Welcome to Your Profile [user]</h1>
           </div>
         </section>
       </main>

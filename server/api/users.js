@@ -1,43 +1,71 @@
 import express from "express";
-import { createUser, findUserByUsername } from "../db/users.js";
+import requireUser from "../middleware/requireUser.js";
+import { createUser, getUserById, findUserByUsername } from "../db/users.js";
 
 const router = express.Router();
 
-//Register user//
+//Endpoint to register user//
 router.post("/", async (req, res, next) => {
   try {
-    const { username, password, displayname, biography } = req.body;
+    const { username, password, displayname } = req.body;
 
-    //Validate the fields//
     if (!username || !password) {
       return res.status(400).send({
-        error: "username and password required",
+        error: "Please submit a username and password",
       });
     }
 
-    //This is to check if a username already exists//
-    const existing = await findUserByUsername(username);
-    if (existing) {
+    //Check if username is already in use by someone else//
+    const existingUser = await findUserByUsername(username);
+    if (existingUser) {
       return res.status(409).send({
-        error: "username already taken",
+        error: "Username already in use",
       });
     }
 
-    //This is to create the user//
     const user = await createUser({
       username,
       password,
       displayname,
-      biography,
     });
-
-    //This is to hide the password//
-    delete user.password;
+    delete user.password; //For security reasons//
 
     res.status(201).send(user);
-  } catch (err) {
-    next(err);
+  } catch (error) {
+    next(error);
   }
+});
+
+// router.param("/id", async (req, res, next, id) => {
+//   const user = await getUserById(id);
+//   if (!user) return res.status(404).send("User not found.");
+//   req.user = user;
+//   next();
+// });
+
+//Get user details i.e. through postman//
+router.get("/:id", requireUser, async (req, res, next) => {
+  const id = Number(req.params.id);
+  if (req.user.id !== id) {
+    return res.status(403).send("Unauthorized");
+  }
+  res.send(req.user);
+});
+
+// router.param("/id", async (req, res, next, id) => {
+//   const user = await getUserById(id);
+//   if (!user) return res.status(404).send("User not found.");
+//   req.user = user;
+//   next();
+// });
+
+//Get user details i.e. through postman//
+router.get("/:id", requireUser, async (req, res, next) => {
+  const id = Number(req.params.id);
+  if (req.user.id !== id) {
+    return res.status(403).send("Unauthorized");
+  }
+  res.send(req.user);
 });
 
 export default router;

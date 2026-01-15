@@ -1,8 +1,8 @@
 import client from "./client.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-
-const JWT_SECRET = process.env.JWT || "dev_secret";
+import { JWT_SECRET } from "../../env.js";
+import { createToken, verifyToken } from "../utills/jwt.js";
 
 export const authenticate = async ({ username, password }) => {
   if (!username || !password) {
@@ -31,7 +31,7 @@ export const authenticate = async ({ username, password }) => {
     error.status = 401;
     throw error;
   }
-
+  // console.log("JWT_Secret is", JWT_SECRET);
   const token = jwt.sign({ id: response.rows[0].id }, JWT_SECRET, {
     expiresIn: "7d",
   });
@@ -41,10 +41,10 @@ export const authenticate = async ({ username, password }) => {
 
 export const findUserByToken = async (token) => {
   try {
-    const payload = jwt.verify(token, JWT_SECRET);
+    const payload = verifyToken(token);
 
     const SQL = `
-      SELECT id, username, displayname, biography
+      SELECT id, username, displayname, biography, profilePicture, banner
       FROM users
       WHERE id = $1
       `;

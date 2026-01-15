@@ -15,6 +15,8 @@ export const createUser = async ({
   password,
   displayname = null,
   biography = null,
+  profilePicture = "",
+  banner = "",
 }) => {
   if (!username?.trim() || !password?.trim()) {
     throw Error("Username and password are required");
@@ -24,9 +26,9 @@ export const createUser = async ({
 
   const SQL = `
     INSERT INTO users
-      (username, displayname, biography, password)
+      (username, displayname, biography, password, profilePicture, banner)
     VALUES
-      ($1, $2, $3, $4)
+      ($1, $2, $3, $4, $5, $6)
     RETURNING *;
     `;
   const { rows } = await client.query(SQL, [
@@ -34,7 +36,33 @@ export const createUser = async ({
     displayname,
     biography,
     hashedPassword,
+    profilePicture,
+    banner,
   ]);
 
   return rows[0];
+};
+
+export const getUserById = async (id) => {
+  const sql = `
+  SELECT *
+  FROM users
+  WHERE id = $1
+  `;
+  const {
+    rows: [user],
+  } = await client.query(sql, [id]);
+  return user;
+};
+
+export const findUserByUsername = async (username) => {
+  const SQL = `
+  SELECT *
+  FROM users
+  WHERE username = $1;
+  `;
+  const {
+    rows: [user],
+  } = await client.query(SQL, [username]);
+  return user;
 };
