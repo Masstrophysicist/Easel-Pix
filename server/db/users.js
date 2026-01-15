@@ -45,3 +45,15 @@ export const getUserById = async (id) => {
   } = await client.query(sql, [id]);
   return user;
 };
+
+export const findUserByUsername = async (username) => {
+  const SQL = `
+  SELECT *
+  FROM users
+  WHERE username = $1;
+  `;
+  const {
+    rows: [user],
+  } = await client.query(SQL, [username]);
+  return user;
+};
