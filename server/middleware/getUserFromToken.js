@@ -8,6 +8,7 @@ export default async function getUserFromToken(req, res, next) {
   const token = authorization.split(" ")[1];
   console.log("token", token);
   try {
+    console.log("getUserFromToken");
     const { id } = verifyToken(token);
     const user = await getUserById(id);
     req.user = user;

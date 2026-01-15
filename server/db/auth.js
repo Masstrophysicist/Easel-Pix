@@ -2,6 +2,7 @@ import client from "./client.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { JWT_SECRET } from "../../env.js";
+import { createToken, verifyToken } from "../utills/jwt.js";
 
 export const authenticate = async ({ username, password }) => {
   if (!username || !password) {
@@ -40,7 +41,7 @@ export const authenticate = async ({ username, password }) => {
 
 export const findUserByToken = async (token) => {
   try {
-    const payload = jwt.verify(token, JWT_SECRET);
+    const payload = verifyToken(token);
 
     const SQL = `
       SELECT id, username, displayname, biography
