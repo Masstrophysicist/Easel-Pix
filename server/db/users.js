@@ -29,3 +29,15 @@ export const createUser = async ({
 
   return rows[0];
 };
+
+export const getUserById = async (id) => {
+  const sql = `
+  SELECT *
+  FROM users
+  WHERE id = $1
+  `;
+  const {
+    rows: [user],
+  } = await client.query(sql, [id]);
+  return user;
+};

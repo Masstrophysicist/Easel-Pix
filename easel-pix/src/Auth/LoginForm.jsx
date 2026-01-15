@@ -41,10 +41,3 @@ const LoginForm = ({ setUser }) => {
 };
 
 export default LoginForm;
-
-/* Log Out Button Code:
-  Place this code under the declared component:
-    const logOut = () => {
-      setUser({});
-      };
-<button onClick={() => {logOut()}}>Log Out</button> */
