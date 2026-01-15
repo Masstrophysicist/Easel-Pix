@@ -1,8 +1,7 @@
 import client from "./client.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-
-const JWT_SECRET = process.env.JWT || "dev_secret";
+import { JWT_SECRET } from "../../env.js";
 
 export const authenticate = async ({ username, password }) => {
   if (!username || !password) {
@@ -31,7 +30,7 @@ export const authenticate = async ({ username, password }) => {
     error.status = 401;
     throw error;
   }
-
+  console.log("JWT_Secret is", JWT_SECRET);
   const token = jwt.sign({ id: response.rows[0].id }, JWT_SECRET, {
     expiresIn: "7d",
   });

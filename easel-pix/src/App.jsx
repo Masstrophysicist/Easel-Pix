@@ -13,8 +13,29 @@ import RegisterPage from "./Auth/RegisterPage";
 function App() {
   const [count, setCount] = useState(0);
   const [background, setBackground] = useState(null);
-
   const [user, setUser] = useState(null);
+  console.log("token gotten", window.localStorage.getItem("token"));
+  const getHeaders = () => {
+    return {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    };
+  };
+
+  const authorization = async () => {
+    if (localStorage.getItem("token")) {
+      const { data } = await axios.get(
+        "http://localhost:3000/api/auth/me",
+        getHeaders()
+      );
+      setUser(data);
+    }
+  };
+
+  useEffect(() => {
+    authorization();
+  }, []);
 
   return (
     <>

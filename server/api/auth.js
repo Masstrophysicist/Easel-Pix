@@ -17,6 +17,7 @@ router.post("/login", async (req, res, next) => {
 
 //This is for the specific user//
 router.get("/me", requireUser, (req, res) => {
+  console.log("testing me", req.user);
   res.send(req.user);
 });
 

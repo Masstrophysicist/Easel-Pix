@@ -38,6 +38,6 @@ export const getUserById = async (id) => {
   `;
   const {
     rows: [user],
-  } = await db.query(sql, [id]);
+  } = await client.query(sql, [id]);
   return user;
 };

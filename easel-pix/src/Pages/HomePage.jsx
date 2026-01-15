@@ -11,11 +11,25 @@ export default function HomePage({ setUser, user }) {
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSalPUqb1gpbBibzSAKkG_3QISmsftnXoURZEc4LCnudqiy3mazEuW48k1eBclvAs75oT0SWbRGmOdHVIBUhtYIGdCC7oqOsTz0qA8nPA&s=10";
 
   useEffect(() => {
+    console.log(user);
+  }, [user]);
+
+  useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get("/me");
+        const getHeaders = () => {
+          return {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          };
+        };
+        const response = await axios.get(
+          "http://localhost:3000/api/auth/me",
+          getHeaders()
+        );
         console.log("Hello User", response);
-        const fetchedUser = response.user;
+        const fetchedUser = response.data;
         setUser((prevUser) => ({ ...prevUser, ...fetchedUser }));
       } catch (error) {
         console.log("Error fetching user", error.message);
