@@ -18,10 +18,10 @@ const Posts = ({ posts, user, createLineItem, updatePost }) => {
                   createLineItem(post);
                 }}
               >
-                Spaceholder
+                Post
               </button>
             ) : (
-              <p>log in for Spaceholder</p>
+              <p>Log in for post</p>
             )}
           </div>
         );
