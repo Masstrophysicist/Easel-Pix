@@ -1,54 +1,64 @@
 import axios from "axios";
-import { useNavigate } from "react-router";
-import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { useRef, useState } from "react";
 
-const RegisterForm = ({ setUser }) => {
+export default function Register() {
   const navigate = useNavigate();
   const usernameRef = useRef();
+  const displaynameRef = useRef();
   const passwordRef = useRef();
+  const [error, setError] = useState("");
 
   const register = async () => {
-    const username = usernameRef.current.value;
-    const password = passwordRef.current.value;
+    setError("");
+
+    const username = usernameRef.current.value.trim();
+    const password = passwordRef.current.value.trim();
+    const displayname = (displaynameRef.current.value || "").trim() || username;
 
     try {
-      const { data } = await axios.post("/api/users", { username, password });
+      await axios.post("/api/users", {
+        username,
+        password,
+        displayname,
+        biography: "",
+      });
 
-      //Register does not give a token so just navigate to login//
-      console.log("Registered user:", data);
+      alert("Account created!");
       navigate("/login");
-    } catch (error) {
-      console.error(error.response?.data || error);
+    } catch (err) {
+      setError(err.response?.data?.error || "Register failed");
     }
   };
 
   return (
-    <form>
+    <div>
+      <h2>Register</h2>
+
       <div>
         <label>
           Username:
-          <input type="text" ref={usernameRef} />
+          <input ref={usernameRef} type="text" />
         </label>
       </div>
 
       <div>
         <label>
           Display Name:
-          <input type="text" name="displayName" />
+          <input ref={displaynameRef} type="text" />
         </label>
       </div>
+
       <div>
         <label>
           Password:
-          <input type="password" ref={passwordRef} />
+          <input ref={passwordRef} type="password" />
         </label>
       </div>
 
-      <button type="button" onClick={register}>
-        Register
-      </button>
-    </form>
-  );
-};
+      {error && <p style={{ color: "red" }}>{error}</p>}
 
-export default RegisterForm;
+      <button onClick={register}>Register</button>
+    </div>
+  );
+}
