@@ -55,7 +55,7 @@ export default function HomePage({ setUser, user }) {
           }}
         ></div>
         <div className="profileName">
-          {user?.displayname} - {user?.biography || "New User"}
+          {user?.displayname} - {user?.biography}
         </div>
       </div>
 
