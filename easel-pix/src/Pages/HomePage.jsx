@@ -24,10 +24,7 @@ export default function HomePage({ setUser, user }) {
             },
           };
         };
-        const response = await axios.get(
-          "http://localhost:3000/api/auth/me",
-          getHeaders()
-        );
+        const response = await axios.get("/api/auth/me", getHeaders());
         // console.log("Hello User", response);
         const fetchedUser = response.data;
         setUser((prevUser) => ({ ...prevUser, ...fetchedUser }));
