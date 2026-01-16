@@ -31,7 +31,9 @@ const init = async () => {
   console.log("connected to database");
 
   //Run this part only after schema.sql has been run successfully//
-  await seed();
+  if (process.env.SYNC) {
+    await seed();
+  }
 
   app.listen(PORT, () => console.log(`listening on port ${PORT}`));
 };

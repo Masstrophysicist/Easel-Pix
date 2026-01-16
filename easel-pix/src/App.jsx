@@ -24,10 +24,7 @@ function App() {
 
   const authorization = async () => {
     if (localStorage.getItem("token")) {
-      const { data } = await axios.get(
-        "http://localhost:3000/api/auth/me",
-        getHeaders()
-      );
+      const { data } = await axios.get("/api/auth/me", getHeaders());
       setUser(data);
     }
   };
