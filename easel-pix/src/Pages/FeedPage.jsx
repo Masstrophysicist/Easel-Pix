@@ -1,5 +1,6 @@
 import "./feedPage.css";
 import { Link } from "react-router";
+import Post from "../components/Post";
 
 export default function FeedPage() {
   const posts = [
@@ -33,21 +34,7 @@ export default function FeedPage() {
 
         <div className="feedList">
           {posts.map((post) => (
-            <div key={post.id} className="feedPost">
-              <img src={post.image} alt="post art" className="feedImage" />
-              <h4 className="postTitle">{post.title}</h4>
-
-              <p className="postAuthor">by {post.name}</p>
-
-              <p className="postDesc">{post.desc}</p>
-
-              <div className="postActions">
-                <div className="postActions">
-                  <button className="iconBtn">♡</button>
-                  <button className="iconBtn">💬</button>
-                </div>
-              </div>
-            </div>
+            <Post post={post} />
           ))}
         </div>
       </div>

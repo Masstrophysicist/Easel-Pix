@@ -3,8 +3,33 @@ import "../App.css";
 import "./userPage.css";
 import { useEffect } from "react";
 import axios from "axios";
+import PostThumbnail from "../components/PostThumbnail";
 
 export default function HomePage({ setUser, user }) {
+  const posts = [
+    { id: 0, name: "", title: "", desc: "", image: "" },
+    {
+      id: 1,
+      name: "Orlando",
+      title: "JWT Authentication System",
+      desc: "Built secure login and protected routes using JWT.",
+      image: "https://picsum.photos/600/300?random=1",
+    },
+    {
+      id: 2,
+      name: "Zak",
+      title: "Frontend Feed UI",
+      desc: "Designed a clean feed layout for portfolio posts.",
+      image: "https://picsum.photos/600/300?random=2",
+    },
+    {
+      id: 3,
+      name: "Tyler",
+      title: "Database Schema",
+      desc: "Created relational schema for users and posts.",
+      image: "https://picsum.photos/600/300?random=3",
+    },
+  ];
   const genericBanner =
     "https://www.thediscoveriesof.com/wp-content/uploads/2022/06/Mountain-Landscape-in-Colorado-Rocky-Mountains-Colorado-United-States..jpg.webp";
   const genericProfile =
@@ -65,17 +90,8 @@ export default function HomePage({ setUser, user }) {
         </div>
 
         <div className="List">
-          {Array.from({ length: 10 }).map((_, index) => (
-            <div key={index} className="post-item">
-              {/*database images go here */}
-              <div className="post-content-area">
-                {/* post img tag goes here later */}
-              </div>
-
-              <div className="post-footer">
-                {index === 0 ? "New Post +" : `Project ${index}`}
-              </div>
-            </div>
+          {posts.map((post, index) => (
+            <PostThumbnail index={index} post={post} />
           ))}
         </div>
       </div>
