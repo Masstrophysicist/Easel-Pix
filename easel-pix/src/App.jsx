@@ -5,7 +5,7 @@ import "./App.css";
 import "./index.css";
 import "./Auth/AboutMe";
 import { Routes, Route } from "react-router";
-import HomePage from "./Pages/Homepage";
+import HomePage from "./Pages/HomePage";
 import LoginPage from "./Auth/LoginPage";
 import FeedPage from "./Pages/FeedPage";
 import RegisterPage from "./Auth/RegisterPage";

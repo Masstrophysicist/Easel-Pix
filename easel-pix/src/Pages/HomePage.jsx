@@ -38,47 +38,49 @@ export default function HomePage({ setUser, user }) {
   }, []);
 
   return (
-    <div>
-      <div
-        className="backgroundPic"
-        style={{
-          backgroundImage: `url(${user?.banner || genericBanner})`,
-        }}
-      >
+    <body>
+      <div>
         <div
-          className="profilePicBorder"
+          className="backgroundPic"
           style={{
-            backgroundImage: `url(${user?.profilepicture || genericProfile})`,
+            backgroundImage: `url(${user?.banner || genericBanner})`,
           }}
-        ></div>
-        <div className="profileName">
-          {user?.displayname} - {user?.biography}
+        >
+          <div
+            className="profilePicBorder"
+            style={{
+              backgroundImage: `url(${user?.profilepicture || genericProfile})`,
+            }}
+          ></div>
+          <div className="profileName">
+            {user?.displayname} - {user?.biography}
+          </div>
+        </div>
+
+        <div className="posts">
+          <div className="accountNav">
+            <Link to="#">Posts</Link>
+            <Link to="#">Favorites</Link>
+            <Link to="#">Followers</Link>
+            <Link to="#">Following</Link>
+          </div>
+
+          <div className="List">
+            {Array.from({ length: 10 }).map((_, index) => (
+              <div key={index} className="post-item">
+                {/*database images go here */}
+                <div className="post-content-area">
+                  {/* post img tag goes here later */}
+                </div>
+
+                <div className="post-footer">
+                  {index === 0 ? "New Post +" : `Project ${index}`}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-
-      <div className="posts">
-        <div className="accountNav">
-          <Link to="#">Posts</Link>
-          <Link to="#">Favorites</Link>
-          <Link to="#">Followers</Link>
-          <Link to="#">Following</Link>
-        </div>
-
-        <div className="List">
-          {Array.from({ length: 10 }).map((_, index) => (
-            <div key={index} className="post-item">
-              {/*database images go here */}
-              <div className="post-content-area">
-                {/* post img tag goes here later */}
-              </div>
-
-              <div className="post-footer">
-                {index === 0 ? "New Post +" : `Project ${index}`}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+    </body>
   );
 }
