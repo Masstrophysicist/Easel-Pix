@@ -1,39 +1,51 @@
 import { Link } from "react-router";
 import "../App.css";
 import "./userPage.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import PostThumbnail from "../components/PostThumbnail";
+import CreatePostModal from "../components/CreatePostModal";
 
 export default function HomePage({ setUser, user }) {
-  const posts = [
-    { id: 0, name: "", title: "", desc: "", image: "" },
-    {
-      id: 1,
-      name: "Orlando",
-      title: "JWT Authentication System",
-      desc: "Built secure login and protected routes using JWT.",
-      image: "https://picsum.photos/600/300?random=1",
-    },
-    {
-      id: 2,
-      name: "Zak",
-      title: "Frontend Feed UI",
-      desc: "Designed a clean feed layout for portfolio posts.",
-      image: "https://picsum.photos/600/300?random=2",
-    },
-    {
-      id: 3,
-      name: "Tyler",
-      title: "Database Schema",
-      desc: "Created relational schema for users and posts.",
-      image: "https://picsum.photos/600/300?random=3",
-    },
-  ];
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [posts, setPosts] = useState([]);
   const genericBanner =
     "https://www.thediscoveriesof.com/wp-content/uploads/2022/06/Mountain-Landscape-in-Colorado-Rocky-Mountains-Colorado-United-States..jpg.webp";
   const genericProfile =
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSalPUqb1gpbBibzSAKkG_3QISmsftnXoURZEc4LCnudqiy3mazEuW48k1eBclvAs75oT0SWbRGmOdHVIBUhtYIGdCC7oqOsTz0qA8nPA&s=10";
+
+  const handleOpenModal = () => {
+    console.log("going to open new post modal");
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    console.log("going to close modal");
+    setIsModalOpen(false);
+  };
+
+  const getHeaders = () => {
+    return {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    };
+  };
+
+  const fetchPosts = async () => {
+    try {
+      const response = await axios.get("/api/posts/me", getHeaders());
+      console.log("Fetched posts:", response.data);
+      setPosts(response.data);
+    } catch (error) {
+      console.log("Error fetching posts:", error.message);
+    }
+  };
+
+  const handlePostCreated = (newPost) => {
+    console.log("New post created:", newPost);
+    setPosts((prevPosts) => [newPost, ...prevPosts]);
+  };
 
   useEffect(() => {
     console.log("User", user);
@@ -42,13 +54,6 @@ export default function HomePage({ setUser, user }) {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const getHeaders = () => {
-          return {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          };
-        };
         const response = await axios.get("/api/auth/me", getHeaders());
         // console.log("Hello User", response);
         const fetchedUser = response.data;
@@ -60,6 +65,7 @@ export default function HomePage({ setUser, user }) {
     };
 
     fetchUser();
+    fetchPosts();
   }, []);
 
   return (
@@ -90,11 +96,30 @@ export default function HomePage({ setUser, user }) {
         </div>
 
         <div className="List">
-          {posts.map((post, index) => (
-            <PostThumbnail index={index} post={post} />
+          {}
+          <PostThumbnail
+            key="new-post-button"
+            index={0}
+            post={{ id: "new-post", title: "", description: "", image: "" }}
+            onNewPostClick={handleOpenModal}
+          />
+          {}
+          {posts.map((post) => (
+            <PostThumbnail
+              key={post.id}
+              index={1}
+              post={post}
+              onNewPostClick={handleOpenModal}
+            />
           ))}
         </div>
       </div>
+
+      <CreatePostModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        onPostCreated={handlePostCreated}
+      />
     </div>
   );
 }

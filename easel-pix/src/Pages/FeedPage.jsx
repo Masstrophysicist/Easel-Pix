@@ -34,7 +34,7 @@ export default function FeedPage() {
 
         <div className="feedList">
           {posts.map((post) => (
-            <Post post={post} />
+            <Post key={post.id} post={post} />
           ))}
         </div>
       </div>
