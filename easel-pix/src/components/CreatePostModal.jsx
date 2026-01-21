@@ -12,6 +12,7 @@ export default function CreatePostModal({ isOpen, onClose, onPostCreated }) {
   const [loading, setLoading] = useState(false);
   const [imagePreview, setImagePreview] = useState(null);
 
+  //TODO: Causing a freeze in the browser
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
