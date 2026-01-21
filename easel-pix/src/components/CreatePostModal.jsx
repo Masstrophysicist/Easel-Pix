@@ -32,7 +32,7 @@ export default function CreatePostModal({ isOpen, onClose, onPostCreated }) {
     }
 
     // Validate file size (max 70KB to account for base64 encoding overhead)
-    const maxSizeKB = 70;
+    const maxSizeKB = 300;
     const maxSizeBytes = maxSizeKB * 1024;
     if (file.size > maxSizeBytes) {
       const fileSizeKB = Math.round(file.size / 1024);

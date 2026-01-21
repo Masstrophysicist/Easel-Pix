@@ -35,9 +35,9 @@ function App() {
   }, []);
 
   return (
-    <body>
+    <div>
       <header>
-        <NavBar user={user} setUser={setUser}></NavBar>
+        <NavBar user={user} setUser={setUser} />
       </header>
 
       <main className="whole">
@@ -67,7 +67,7 @@ function App() {
       </main>
 
       <footer className="footer">Easel-Pix by Mastrophysicists</footer>
-    </body>
+    </div>
   );
 }
 
