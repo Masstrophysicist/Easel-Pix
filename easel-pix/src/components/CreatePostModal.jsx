@@ -36,7 +36,7 @@ export default function CreatePostModal({ isOpen, onClose, onPostCreated }) {
     if (file.size > maxSizeBytes) {
       const fileSizeKB = Math.round(file.size / 1024);
       setError(
-        `Image is too large (${fileSizeKB}KB). Maximum size is ${maxSizeKB}KB (images are encoded as base64, which adds ~33% overhead to fit the 100KB server limit).`,
+        `Image is too large (${fileSizeKB}KB). Maximum size is ${maxSizeKB}KB (images are encoded as base64, which adds ~33% overhead to fit the 100KB server limit).`
       );
       return;
     }
@@ -90,7 +90,7 @@ export default function CreatePostModal({ isOpen, onClose, onPostCreated }) {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        },
+        }
       );
 
       console.log("Post created:", response.data);
