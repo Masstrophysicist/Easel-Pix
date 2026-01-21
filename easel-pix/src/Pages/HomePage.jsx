@@ -93,12 +93,12 @@ export default function HomePage({ setUser, user }) {
       </div>
 
       <div className="posts">
-        <div className="accountNav">
+        {/* <div className="accountNav">
           <Link to="#">Posts</Link>
           <Link to="#">Favorites</Link>
           <Link to="#">Followers</Link>
           <Link to="#">Following</Link>
-        </div>
+        </div> */}
 
         <div className="List">
           {}
