@@ -42,3 +42,30 @@
 .iconBtn:hover {
   transform: scale(1.2);
 }
+
+.pageContainer {
+  display: flex;
+  width: 100%;
+  min-height: 80vh;
+  align-items: center;
+}
+
+.welcome {
+  flex: 1;
+  color: rgb(255, 255, 255);
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: xx-large;
+}
+
+.description {
+  flex: 1;
+  padding: 40px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  font-size: x-large;
+  color: white;
+}
