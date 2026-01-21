@@ -33,7 +33,7 @@ export default function FeedPage() {
       <div className="welcome">
         <h1>Welcome to Easel-Pix</h1>
       </div>
-      <div className="description">
+      <div className="titleDescription">
         <p>
           A place for you to create your own portfolio and store all your
           creative endeavours.

@@ -168,7 +168,9 @@ export default function CreatePostModal({ isOpen, onClose, onPostCreated }) {
           </div>
 
           <div className="formGroup">
-            <label htmlFor="imageFile">Upload Image (optional, max 70KB)</label>
+            <label htmlFor="imageFile">
+              Upload Image (optional, max 300KB)
+            </label>
             <input
               type="file"
               id="imageFile"
