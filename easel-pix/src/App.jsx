@@ -5,10 +5,11 @@ import "./App.css";
 import "./index.css";
 import "./Auth/AboutMe";
 import { Routes, Route } from "react-router";
-import HomePage from "./Pages/Homepage";
+import HomePage from "./Pages/HomePage";
 import LoginPage from "./Auth/LoginPage";
 import FeedPage from "./Pages/FeedPage";
 import RegisterPage from "./Auth/RegisterPage";
+import PostDetailPage from "./Pages/PostDetailPage";
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -56,6 +57,11 @@ function App() {
             exact
             path="/register"
             element={<RegisterPage setUser={setUser} />}
+          />
+          <Route
+            exact
+            path="/posts/:id"
+            element={<PostDetailPage user={user} />}
           />
         </Routes>
       </main>
