@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import "../App.css";
 import "./userPage.css";
 import { useEffect, useState } from "react";
@@ -7,6 +7,7 @@ import PostThumbnail from "../components/PostThumbnail";
 import CreatePostModal from "../components/CreatePostModal";
 
 export default function HomePage({ setUser, user }) {
+  const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [posts, setPosts] = useState([]);
   const genericBanner =
@@ -22,6 +23,10 @@ export default function HomePage({ setUser, user }) {
   const handleCloseModal = () => {
     console.log("going to close modal");
     setIsModalOpen(false);
+  };
+
+  const handlePostClick = (postId) => {
+    navigate(`/posts/${postId}`);
   };
 
   const getHeaders = () => {
@@ -110,6 +115,7 @@ export default function HomePage({ setUser, user }) {
               index={1}
               post={post}
               onNewPostClick={handleOpenModal}
+              onPostClick={handlePostClick}
             />
           ))}
         </div>

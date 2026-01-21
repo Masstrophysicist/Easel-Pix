@@ -1,15 +1,23 @@
-export default function PostThumbnail({ post, index, onNewPostClick }) {
+export default function PostThumbnail({
+  post,
+  index,
+  onNewPostClick,
+  onPostClick,
+}) {
   const handleClick = () => {
     if (index === 0 && onNewPostClick) {
       onNewPostClick();
+    } else if (index !== 0 && onPostClick) {
+      onPostClick(post.id);
     }
   };
+
   return (
     <div
       key={post.id}
       className="post-item"
       onClick={handleClick}
-      style={{ cursor: index === 0 ? "pointer" : "default" }}
+      style={{ cursor: "pointer" }}
     >
       {/*database images go here */}
       <div className="post-content-area">

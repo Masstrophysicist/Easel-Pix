@@ -24,13 +24,14 @@ export const fetchPostsByUser = async (userId) => {
 };
 
 //Fetch a single post//
-export const fetchPostById = async (postId, userId) => {
+export const fetchPostById = async (postId) => {
   const SQL = `
-    SELECT *
+    SELECT posts.*, users.username, users.displayname, users.profilepicture
     FROM posts
-    WHERE id = $1 AND user_id = $2;
+    JOIN users ON posts.user_id = users.id
+    WHERE posts.id = $1;
     `;
-  const response = await client.query(SQL, [postId, userId]);
+  const response = await client.query(SQL, [postId]);
   return response.rows[0];
 };
 
@@ -63,5 +64,16 @@ export const updatePost = async ({ id, title, description, image }) => {
     `;
   const response = await client.query(SQL, [title, description, image, id]);
 
+  return response.rows[0];
+};
+
+//delete post//
+export const deletePost = async (postId) => {
+  const SQL = `
+  DELETE FROM posts
+  WHERE id = $1
+  RETURNING *;
+  `;
+  const response = await client.query(SQL, [postId]);
   return response.rows[0];
 };

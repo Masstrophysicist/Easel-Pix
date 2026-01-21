@@ -1,0 +1,44 @@
+.deleteModalContent {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  max-width: 500px;
+  width: 100%;
+  padding: 30px;
+}
+
+.deleteModalBody {
+  margin: 24px 0;
+}
+
+.deleteModalBody p {
+  margin: 12px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.warningText {
+  color: #ff4444;
+  font-size: 14px;
+}
+
+.deleteConfirmButton {
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  background-color: #ff4444;
+  color: white;
+}
+
+.deleteConfirmButton:hover:not(:disabled) {
+  background-color: #cc0000;
+}
+
+.deleteConfirmButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
