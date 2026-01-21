@@ -1,3 +1,14 @@
+.whole {
+  min-height: 100vh;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0c2c55;
+}
+
 .posts {
   display: flex;
   flex-direction: row;
@@ -7,7 +18,7 @@
   min-height: 500px;
 }
 .posts .accountNav {
-  background-color: rgb(0, 0, 0);
+  background-color: #296374;
   color: white;
   font-size: x-large;
   width: 200px;
@@ -31,14 +42,14 @@
   grid-template-rows: repeat(2, minmax(200px, auto));
   gap: 20px;
   background-color: transparent;
-  color: black;
+  color: white;
   flex-grow: 1;
   padding: 10px;
 }
 
 .post-item {
-  background-color: lightgray;
-  border: 2px solid black;
+  background-color: #629fad;
+  border: 2px solid white;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -89,4 +100,5 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
 }
