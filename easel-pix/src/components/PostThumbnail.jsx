@@ -1,3 +1,5 @@
+import "./Thumbnail.css";
+
 export default function PostThumbnail({
   post,
   index,

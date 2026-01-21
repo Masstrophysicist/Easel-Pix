@@ -10,10 +10,7 @@ const NavBar = ({ user, setUser }) => {
   };
   return (
     <nav className="NavBar">
-      <form className="Search">
-        <input type="text" name="search" />
-        <button type="submit">Search</button>
-      </form>
+      <div className="LeftSpacer" />
       <div className="Logo">
         <Link to="/">Easel-Pix</Link>
       </div>
@@ -21,7 +18,6 @@ const NavBar = ({ user, setUser }) => {
         {user?.token || localStorage.getItem("token") ? (
           <span>
             <Link to="/user">Profile </Link>
-            <Link to="#">Notifications </Link>
             <Link onClick={logout} to="/">
               Logout
             </Link>

@@ -35,12 +35,12 @@ function App() {
   }, []);
 
   return (
-    <>
+    <body>
       <header>
         <NavBar user={user} setUser={setUser}></NavBar>
       </header>
 
-      <main>
+      <main className="whole">
         <Routes>
           <Route
             exact
@@ -67,7 +67,7 @@ function App() {
       </main>
 
       <footer className="footer">Easel-Pix by Mastrophysicists</footer>
-    </>
+    </body>
   );
 }
 

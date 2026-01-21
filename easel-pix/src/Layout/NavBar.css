@@ -1,12 +1,12 @@
 .NavBar {
-  background-color: lightblue;
+  background-color: rgb(175, 175, 175);
   display: flex;
   flex-direction: row;
   align-items: center;
   height: 30px;
   padding: 0 15px;
 }
-.NavBar .Search {
+.NavBar .LeftSpacer {
   flex: 1;
   display: flex;
   gap: 5px;
@@ -27,6 +27,7 @@
   margin-right: 10px;
   justify-content: flex-end;
   margin-bottom: 2px;
+  font-size: large;
 }
 
 .Icon {

@@ -74,7 +74,7 @@ export default function HomePage({ setUser, user }) {
   }, []);
 
   return (
-    <div>
+    <main className="background">
       <div
         className="backgroundPic"
         style={{
@@ -126,6 +126,6 @@ export default function HomePage({ setUser, user }) {
         onClose={handleCloseModal}
         onPostCreated={handlePostCreated}
       />
-    </div>
+    </main>
   );
 }

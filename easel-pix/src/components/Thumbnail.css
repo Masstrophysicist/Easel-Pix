@@ -1,0 +1,7 @@
+.post-content-area {
+  display: flex;
+  max-width: 25rem;
+  max-height: 25rem;
+  flex-direction: column;
+  justify-content: center;
+}
