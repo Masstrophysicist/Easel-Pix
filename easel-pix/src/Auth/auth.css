@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: white;
 }
 
 .Register {
@@ -10,4 +11,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: white;
+}
+
+.Login a:visited {
+  color: white;
+}
+
+.Register a:visited {
+  color: white;
 }

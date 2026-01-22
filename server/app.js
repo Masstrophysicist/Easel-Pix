@@ -9,7 +9,7 @@ import getUserFromToken from "./middleware/getUserFromToken.js";
 const app = express();
 app.use(cors());
 
-app.use(express.json({ limit: "100mb" }));
+app.use(express.json({ limit: "300mb" }));
 app.use(getUserFromToken);
 
 //API//

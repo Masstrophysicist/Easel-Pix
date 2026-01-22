@@ -1,71 +1,37 @@
-.feedContainer {
-  padding: 10px;
-  width: 100%;
+.epLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  background: #0c2c55;
+}
+
+.epLeft {
   display: flex;
+  align-items: center;
   justify-content: center;
 }
 
-.feedWrapper {
-  width: 100%;
-  max-width: 700px;
+.epLogo {
+  width: 30rem;
 }
 
-.feedList {
+.epRight {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-top: 12px;
-}
-
-.feedPost {
-  background-color: rgb(69, 101, 148);
-  color: #fff;
-  padding: 15px;
-  border-radius: 6px;
-}
-
-.feedImage {
-  width: 100%;
-  max-height: 220px;
-  object-fit: cover;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
-.iconBtn {
-  background: none;
-  border: none;
-  font-size: 22px;
-  cursor: pointer;
-}
-
-.iconBtn:hover {
-  transform: scale(1.2);
-}
-
-.pageContainer {
-  display: flex;
-  width: 100%;
-  min-height: 80vh;
-  align-items: center;
-}
-
-.welcome {
-  flex: 1;
-  color: rgb(255, 255, 255);
-  height: 300px;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: xx-large;
+  padding: 4rem;
 }
 
-.description {
-  flex: 1;
-  padding: 40px;
-  text-align: left;
-  display: flex;
-  align-items: center;
-  font-size: x-large;
+.epTitle {
+  font-size: 4rem;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+  color: white;
+}
+
+.epSubtitle {
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 0;
   color: white;
 }

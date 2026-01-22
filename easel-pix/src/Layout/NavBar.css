@@ -36,3 +36,9 @@
   margin-bottom: 5px;
   margin-left: 5px;
 }
+
+.navLogo {
+  padding-top: 1rem;
+  height: 10rem;
+  cursor: pointer;
+}
