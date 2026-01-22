@@ -105,7 +105,7 @@ export default function PostDetailPage({ user }) {
         <div>
           <EditPostModal
             isOpen={showEditModal}
-            onClose={() => showEditModal(false)}
+            onClose={() => setShowEditModal(false)}
             post={post}
             onPostUpdated={handlePostUpdated}
           />

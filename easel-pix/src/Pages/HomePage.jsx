@@ -87,9 +87,7 @@ export default function HomePage({ setUser, user }) {
             backgroundImage: `url(${user?.profilepicture || genericProfile})`,
           }}
         ></div>
-        <div className="profileName">
-          {user?.displayname} - {user?.biography}
-        </div>
+        <div className="profileName">{user?.displayname}</div>
       </div>
 
       <div className="posts">

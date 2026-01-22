@@ -107,10 +107,18 @@ export default function EditPostModal({
       );
 
       console.log("Post updated", response.data);
-
-      if (onPostUpdated) {
+      try {
+        const response = await axios.get(`/api/posts/${post.id}`);
         onPostUpdated(response.data);
+      } catch (err) {
+        console.error("Error fetching post", err);
+        setError(err.response?.data?.error || "Failed to load post");
+        setLoading(false);
       }
+
+      // if (onPostUpdated) {
+      //   onPostUpdated(response.data);
+      // }
 
       onClose();
     } catch (err) {
