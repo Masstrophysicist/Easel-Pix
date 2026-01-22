@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import "./NavBar.css";
+import logo from "../assets/easel-pix-logo.webp";
 
 const NavBar = ({ user, setUser }) => {
   const profileUrl =
@@ -12,7 +13,9 @@ const NavBar = ({ user, setUser }) => {
     <nav className="NavBar">
       <div className="LeftSpacer" />
       <div className="Logo">
-        <Link to="/">Easel-Pix</Link>
+        <Link to="/">
+          <img src={logo} alt="Easel-Pix" className="navLogo" />
+        </Link>
       </div>
       <div className="Options">
         {user?.token || localStorage.getItem("token") ? (
