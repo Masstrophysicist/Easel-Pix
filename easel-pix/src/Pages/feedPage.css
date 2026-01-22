@@ -27,18 +27,16 @@
   font-weight: 800;
   margin: 0 0 1rem 0;
   color: white;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  justify-content: center;
+  align-items: center;
 }
 
 .epSubtitle {
   font-size: 2rem;
   font-weight: 500;
   margin: 0;
-.titleDescription {
-  flex: 1;
-  padding: 40px;
-  text-align: left;
-  display: flex;
-  align-items: center;
-  font-size: x-large;
   color: white;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-style: italic;
 }

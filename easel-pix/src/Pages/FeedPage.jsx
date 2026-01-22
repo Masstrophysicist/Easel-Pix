@@ -11,8 +11,6 @@ export default function FeedPage() {
       <div className="epRight">
         <h1 className="epTitle">Welcome to Easel-Pix</h1>
         <h2 className="epSubtitle">
-      <div className="titleDescription">
-        <p>
           A place for you to create your own portfolio and store all your
           creative endeavours.
         </h2>

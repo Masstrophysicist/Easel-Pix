@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: center;
   color: white;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .Register {
@@ -12,12 +13,15 @@
   justify-content: center;
   align-items: center;
   color: white;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .Login a:visited {
   color: white;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .Register a:visited {
   color: white;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
